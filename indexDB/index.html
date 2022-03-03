@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>2</div>
+    <script src="./index.js"></script>
+    <script>
+
+        console.log('IndexDB', IndexDB);
+
+        // 初始化数据库
+        IndexDB.init('table1', 'user', true, (e) => {
+            console.log('初始化数据库', e);
+        })
+        // 插入数据
+        IndexDB.insertData('table1', 'user', 2, {
+            name: 'zzx',
+            gender: 1,
+            age: 23
+        }, (e) => {
+            console.log('插入数据', e);
+        })
+        // 查找数据
+        IndexDB.selectData('table1', 'user', 2, (e) => {
+            console.log('查找数据', e);
+        })
+        // 删除数据
+        //  IndexDB.deleteData('table1', 'user', 1, (e) => {
+        //     console.log('删除数据数据', e);
+        // })
+        // 修改数据
+        IndexDB.changeData('table1', 'user', 2, {
+            name: 'dolly',
+            gender: 0,
+            age: 21
+        }, (e) => {
+            console.log('修改数据', e);
+        })
+        // 清空表
+        IndexDB.clearTable('table1', 'user', (e) => {
+            console.log('清空数据库表', e);
+        })
+    </script>
+</body>
+
+</html>
