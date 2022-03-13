@@ -20,14 +20,14 @@
 <script>
 // @ is an alias to /src
 import { useRouter } from 'vue-router'
-
+import { ipcRenderer } from 'electron'
 export default {
   name: 'HomeView',
   setup () {
     const router = useRouter()
-    const { ipcRenderer } = require('electron')
+    console.log('ipcRenderer', ipcRenderer)
     const handleLogin = () => {
-      ipcRenderer.send('openCalendarWindow')
+      // ipcRenderer.send('openCalendarWindow')
       router.push({
         path: '/home'
       })
@@ -48,6 +48,7 @@ export default {
   width: 100%;
   height: 300px;
 }
+
 .header {
   position: absolute;
   top: 0;
@@ -60,17 +61,21 @@ export default {
   font-size: 14px;
   color: #ccc;
 }
+
 .right {
   cursor: pointer;
 }
+
 .avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
+
 .nickname {
   margin-top: 30px;
 }
+
 #btn {
   text-align: center;
   color: #ffffff;
@@ -80,9 +85,11 @@ export default {
   background-color: #1aad19;
   cursor: pointer;
 }
+
 #btn:hover {
   background-color: #129611;
 }
+
 .another {
   margin-top: 20px;
   color: #436895;
